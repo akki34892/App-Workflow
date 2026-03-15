@@ -11,19 +11,19 @@
 </head>
 <body>
   <h1>Interactive Workflow Demo</h1>
-  <h2 id="title">Screen: Settings</h2>
-  <img id="screen" src="1.png" usemap="#map1">
+    <img id="screen" src="1.png" usemap="#map1">
 
   <!-- Hotspot maps -->
   <map name="map1">
     <!-- Click on "Apps" -->
     <area shape="rect" coords="152,38,208,111" href="#" onclick="goTo(2)" alt="Apps">
+    <area shape="rect" coords="50,34,119,111" href="#" onclick="goTo(6)" alt="Noon Food OMS">
     <!-- Back button -->
     <area shape="rect" coords="78,672,116,707" href="#" onclick="goBack()" alt="Back">
   </map>
 
   <map name="map2">
-    <!-- Click on "noon Food OMS" -->
+    <!-- Click on "Noon Food OMS" -->
     <area shape="rect" coords="32,337,265,376" href="#" onclick="goTo(3)" alt="noon Food OMS">
     <!-- Back button -->
     <area shape="rect" coords="82,627,116,657" href="#" onclick="goBack()" alt="Back">
@@ -48,17 +48,105 @@
     <area shape="rect" coords="82,627,116,657" href="#" onclick="goBack()" alt="Back">
   </map>
 
+ <map name="map6">
+    <!-- Click on "Sign In" -->
+    <area shape="rect" coords="33,600,325,640" href="#" onclick="goTo(7)" alt="Login">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goTo(1)" alt="Back">
+  </map>
+
+  <map name="map7">
+    <!-- Click on "Restaurant" -->
+    <area shape="rect" coords="33,575,325,628" href="#" onclick="goTo(8)" alt="Select Rest">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBack()" alt="Back">
+  </map>
+  
+ <map name="map8">
+    <!-- Click on "Confirm" -->
+    <area shape="rect" coords="115,570,325,620" href="#" onclick="goTo(9)" alt="Logged In">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBack()" alt="Back">
+  </map>
+
+  <map name="map9">
+    <!-- Click on "Options" -->
+    <area shape="rect" coords="44,91,71,120" href="#" onclick="goTo(10)" alt="Options">
+    <area shape="rect" coords="188,100,310,140" href="#" onclick="goTo(16)" alt="BUsy">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBack()" alt="Back">
+  </map>
+
+    <map name="map10">
+    <!-- Click on "Any Option" -->
+    <area shape="rect" coords="29,260,176,312" href="#" onclick="goTo(11)" alt="Operational Hours">
+    <area shape="rect" coords="27,328,176,388" href="#" onclick="goTo(12)" alt="Menu">
+    <area shape="rect" coords="27,396,176,450" href="#" onclick="goTo(13)" alt="App Setting">
+    <area shape="rect" coords="27,456,176,516" href="#" onclick="goTo(14)" alt="Help Centre">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBack()" alt="Back">
+  </map>
+
+  
+   <map name="map11">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBack()" alt="Back">
+  </map>
+
+   <map name="map12">
+    <!-- Click on "Menu" -->
+    <area shape="rect" coords="36,152,324,529" href="#" onclick="goTo(15)" alt="Menu Items">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBackTo(10)" alt="Back">
+  </map>
+
+   <map name="map13">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBackTo(10)" alt="Back">
+  </map>
+
+   <map name="map14">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBackTo(10)" alt="Back">
+  </map>
+
+    <map name="map15">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBackTo(10)" alt="Back">
+  </map>
+
+     <map name="map16">
+    <!-- Back button -->
+    <area shape="rect" coords="75,650,116,687" href="#" onclick="goBackTo(9)" alt="Back">
+  </map>
   <script>
-    const screens = [
-      {src:"1.png", title:"Screen: Settings", map:"map1"},
-      {src:"2.png", title:"Screen: Apps", map:"map2"},
-      {src:"3.png", title:"Screen: noon Food OMS", map:"map3"},
-      {src:"4.png", title:"Screen: Storage & Cache", map:"map4"},
-      {src:"5.png", title:"Screen: Cache Cleared", map:"map5"}
-    ];
+   const screens = [
+  {src:"1.png", title:"Screen: Home", map:"map1"},
+  {src:"2.png", title:"Screen: Apps", map:"map2"},
+  {src:"3.png", title:"Screen: Noon Food OMS", map:"map3"},
+  {src:"4.png", title:"Screen: Storage & Cache", map:"map4"},
+  {src:"5.png", title:"Screen: Cache Cleared", map:"map5"},
+  {src:"6.png", title:"Screen: Login Screen", map:"map6"},
+  {src:"7.png", title:"Screen: Select rest", map:"map7"},
+  {src:"8.png", title:"Screen: Select outlet", map:"map8"},
+  {src:"9.png", title:"Screen: Logged In", map:"map9"},
+  {src:"10.png", title:"Screen: Options", map:"map10"},
+  {src:"11.png", title:"Screen: Operational Hours", map:"map11"},
+  {src:"12.png", title:"Screen: Menu category", map:"map12"},
+  {src:"13.png", title:"Screen: Menu", map:"map13"},
+  {src:"14.png", title:"Screen: Items", map:"map14"},
+  {src:"15.png", title:"Screen: Help centre", map:"map15"},
+  {src:"16.png", title:"Screen: App Setting", map:"map16"},
+];
+
     let current = 0;
 
     function goTo(index) {
+      current = index - 1; // adjust for array index
+      updateScreen();
+    }
+
+    function goBackTo(index) {
       current = index - 1; // adjust for array index
       updateScreen();
     }
